@@ -5,7 +5,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_selection import SelectPercentile, f_classif
 
 
-def preprocess(words_file="../utils/word_data.pkl", authors_file="../utils/email_authors.pkl"):
+def preprocess(words_file="../utils/word_data_unix.pkl", authors_file="../utils/email_authors.pkl"):
     """
     this function takes a pre-made list of email texts (by default word_data.pkl)
     and the corresponding authors (by default email_authors.pkl) and performs
