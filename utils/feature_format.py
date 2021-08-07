@@ -29,6 +29,7 @@ that poi is listed first!
 
 import pickle
 import numpy as np
+from newline_fix import newline_fixer
 
 
 def feature_format(dictionary, features, remove_NaN=True, remove_all_zeroes=True, remove_any_zeroes=False, sort_keys=False):

@@ -17,4 +17,6 @@ def newline_fixer(original, destination):
     print(f"Done. Saved {outsize} bytes.")
 
 if __name__ == "__main__":
-    newline_fixer(r"C:\Users\00986562\Dropbox\Personal\pivot\Udacity - Intro to Machine Learning\ud120-projects-py3-jupyter\17-final-project\final_project_dataset.pkl", "final_project_dataset_unix.pkl")
+    original = r"C:\Users\00986562\Dropbox\Personal\pivot\Udacity - Intro to Machine Learning\ud120-projects-py3-jupyter\utils\python2_lesson06_keys.pkl"
+    destination = r"C:\Users\00986562\Dropbox\Personal\pivot\Udacity - Intro to Machine Learning\ud120-projects-py3-jupyter\utils\python2_lesson06_keys_unix.pkl"
+    newline_fixer(original, destination)
