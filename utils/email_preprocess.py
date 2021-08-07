@@ -32,15 +32,26 @@ def preprocess(words_file="../utils/word_data_unix.pkl", authors_file="../utils/
     # test_size is the percentage of events assigned to the test set
     # (remainder go into training)
     features_train, features_test, labels_train, labels_test = train_test_split(word_data, authors, test_size=0.1, random_state=42)
+    
+    ### adding new code here to figure out feature percentile selection
+    print("features_train length:", len(features_train))
 
     # text vectorization--go from strings to lists of numbers
     vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5, stop_words='english')
     features_train_transformed = vectorizer.fit_transform(features_train)
+    
+    ### adding new code here to figure out feature percentile selection
+    print("features_train_transformed shape:", features_train_transformed.shape)
+    
     features_test_transformed = vectorizer.transform(features_test)
 
     # feature selection, because text is super high dimensional and
     # can be really computationally chewy as a result
-    selector = SelectPercentile(f_classif, percentile=10)
+    selector = SelectPercentile(f_classif, percentile=1)
+    
+    ### adding new code here to figure out feature percentile selection
+    print("selector:", selector)
+    
     selector.fit(features_train_transformed, labels_train)
     features_train_transformed = selector.transform(features_train_transformed).toarray()
     features_test_transformed = selector.transform(features_test_transformed).toarray()
@@ -48,5 +59,8 @@ def preprocess(words_file="../utils/word_data_unix.pkl", authors_file="../utils/
     # info on the data
     print("no. of Chris training emails:", sum(labels_train))
     print("no. of Sara training emails:", len(labels_train) - sum(labels_train))
+    
+    ### adding new code here to figure out feature percentile selection
+    print("features_train_transformed shape:", features_train_transformed.shape)
 
     return features_train_transformed, features_test_transformed, labels_train, labels_test
