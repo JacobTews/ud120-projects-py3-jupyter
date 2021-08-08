@@ -1,5 +1,5 @@
 
-def newline_fixer(original, destination):
+def newline_fixer(original):
     """
     convert dos linefeeds (crlf) to unix (lf)
     usage: dos2unix.py
@@ -7,6 +7,7 @@ def newline_fixer(original, destination):
 
     content = ""
     outsize = 0
+    destination = original[:-4] + "_unix.pkl"
     with open(original, "rb") as fin:
         content = fin.read()
     with open(destination, "wb") as fout:
@@ -17,6 +18,5 @@ def newline_fixer(original, destination):
     print(f"Done. Saved {outsize} bytes.")
 
 if __name__ == "__main__":
-    original = r"C:\Users\00986562\Dropbox\Personal\pivot\Udacity - Intro to Machine Learning\ud120-projects-py3-jupyter\utils\python2_lesson06_keys.pkl"
-    destination = r"C:\Users\00986562\Dropbox\Personal\pivot\Udacity - Intro to Machine Learning\ud120-projects-py3-jupyter\utils\python2_lesson06_keys_unix.pkl"
-    newline_fixer(original, destination)
+    original = r"C:\Users\00986562\Dropbox\Personal\pivot\Udacity - Intro to Machine Learning\ud120-projects-py3-jupyter\08-outliers\practice_outliers_net_worths.pkl"
+    newline_fixer(original)
