@@ -18,5 +18,5 @@ def newline_fixer(original):
     print(f"Done. Saved {outsize} bytes.")
 
 if __name__ == "__main__":
-    original = r"C:\Users\00986562\Dropbox\Personal\pivot\Udacity - Intro to Machine Learning\ud120-projects-py3-jupyter\08-outliers\practice_outliers_net_worths.pkl"
+    original = r"C:\Users\00986562\Dropbox\Personal\pivot\Udacity - Intro to Machine Learning\ud120-projects-py3-jupyter\utils\python2_lesson13_keys.pkl"
     newline_fixer(original)
